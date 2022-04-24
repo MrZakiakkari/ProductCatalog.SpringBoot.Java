@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	protected void configure(HttpSecurity http) throws Exception
 	{
 		http.authorizeRequests()
-				.antMatchers("/add-product").access("hasRole('SuperAdmin')")
+				.antMatchers("/add-product/**").access("hasRole('SuperAdmin')")
 				.antMatchers("/delete-product/**").access("hasAnyRole('Admin', 'SuperAdmin')")
 				.and()
 				.formLogin()//	This is the line that generates a login page

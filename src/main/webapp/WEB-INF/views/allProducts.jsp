@@ -50,7 +50,9 @@
 						<td>${product.buyPrice}</td>
 						<td>${product.sellPrice}</td>
 						<td>${product.quantityInStock}</td>
-						<td></td>
+						<security:authorize access="hasAnyRole('Admin', 'SuperAdmin')">
+							<td align="left"><a href="/delete-product/${product.code}">Delete</a></td>
+						</security:authorize>
 					</tr>
 				</c:forEach>
 			</table>
