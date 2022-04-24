@@ -26,19 +26,18 @@ public class ProductService
 
 	}
 
-	public List<Product> getAllProducts()
+	public List<Product> getProducts()
 	{
 		return productList;
 	}// end getAllProducts
 
-	public boolean addAProduct(Product p)
+	public boolean addProduct(Product p)
 	{
 		return productList.add(p);
 	}
 
-	public void deleteAProduct(String code)
+	public boolean deleteProductByCode(String code)
 	{
-
 		Iterator<Product> iterator = productList.iterator();
 		while (iterator.hasNext())
 		{
@@ -46,8 +45,20 @@ public class ProductService
 			if (product.getCode().equalsIgnoreCase(code))
 			{
 				iterator.remove();
+				return true;
 			}
 		}
-	}//end deleteAProduct
-
-}//end class ProductService
+		return false;
+	}
+	public Product getProductByCode(String code)
+	{
+		for (Product product : productList)
+		{
+			if (product.getCode().equalsIgnoreCase(code))
+			{
+				return product;
+			}
+		}
+		return null;
+	}
+}
