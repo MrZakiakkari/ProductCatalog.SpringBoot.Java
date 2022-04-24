@@ -10,32 +10,37 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter
+{
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        PasswordEncoder encoder
-                = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        auth.inMemoryAuthentication()
-            .withUser("alan")
-            .password(encoder.encode("password"))
-            .roles("USER")
-            .and()
-            .withUser("brendan")
-            .password(encoder.encode("password"))
-            .roles("USER", "ADMIN")
-            .and()
-            .withUser("zaki")
-            .password(encoder.encode("password"))
-            .roles("ADMIN");
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception
+	{
+		PasswordEncoder encoder
+				= PasswordEncoderFactories.createDelegatingPasswordEncoder();
+		auth.inMemoryAuthentication()
+				.withUser("mary")
+				.password(encoder.encode("pass"))
+				.roles("User")
+				.and()
+				.withUser("tom")
+				.password(encoder.encode("pass"))
+				.roles("Admin")
+				.and()
+				.withUser("bob")
+				.password(encoder.encode("pass"))
+				.roles("SuperAdmin");
 
-    }
+	}
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/").permitAll()
-            .antMatchers("/*hello/**").access("hasRole('USER')")
-            .antMatchers("/goodbye/**").access("hasRole('ADMIN')").and()
-            .formLogin();
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception
+	{
+		http.authorizeRequests()
+				.antMatchers("/add-product").access("hasRole('SuperAdmin')")
+				.antMatchers("/delete-product/**").access("hasAnyRole('Admin', 'SuperAdmin')")
+				.and()
+				.formLogin()//	This is the line that generates a login page
+				;
+	}
 }

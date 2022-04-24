@@ -26,6 +26,11 @@ public class ProductService
 
 	}
 
+	/**
+	 * Gets all Products
+	 *
+	 * @return List of Products
+	 */
 	public List<Product> getProducts()
 	{
 		return productList;
