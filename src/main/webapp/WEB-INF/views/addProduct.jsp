@@ -8,7 +8,7 @@
     </head>
     <body>
 
-        <form:form >
+        <form:form  modelAttribute="product">
             <table>
                 <tr>
                     <td><form:label path="code">Code</form:label></td>
