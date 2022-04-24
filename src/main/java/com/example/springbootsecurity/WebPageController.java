@@ -15,33 +15,31 @@ import support.web.PathSupport;
 @Controller
 public class WebPageController
 {
-	@RequestMapping(SitePaths.Root)
+	@RequestMapping(SitePaths.ROOT)
 	public String getHomePage()
 	{
-		return PathSupport.redirect(SitePaths.Test);
+		return PathSupport.redirect(SitePaths.TEST);
 	}
-	@GetMapping(SitePaths.Products)
+	@GetMapping(SitePaths.PRODUCTS)
 	public ModelAndView getProductsPage()
 	{
-		ModelAndView modelAndView = new ModelAndView(ViewPageNames.Products);
+		ModelAndView modelAndView = new ModelAndView("allProducts");
 		modelAndView.addObject("productList", productService.getProducts());
 		return modelAndView;
 	}
-	@GetMapping(SitePaths.ProductAdd)
+	@GetMapping(SitePaths.PRODUCT_ADD)
 	public ModelAndView getProductAddPage(HttpServletRequest request, HttpSession session)
 	{
 		ModelAndView modelAndView = new ModelAndView(ViewPageNames.ProductAdd);
 		modelAndView.addObject("product", new Product());
 		return modelAndView;
 	}
-	@RequestMapping(SitePaths.Test)
+	@RequestMapping(SitePaths.TEST)
 	public String getTestPage()
 	{
 		return ViewPageNames.Test;
 	}
-	//
-	//	Private Fields
-	//
+
 	@Autowired
 	private ProductService productService;
 }

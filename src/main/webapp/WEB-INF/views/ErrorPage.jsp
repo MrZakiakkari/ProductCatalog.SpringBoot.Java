@@ -12,9 +12,9 @@
 			<nav>
 				<ul>
 					<li><a href="<%=request.getContextPath()%>">Home</a></li>
-					<li><a href="<%=request.getContextPath() + SitePaths.Products%>">All Products</a></li>
+					<li><a href="<%=request.getContextPath() + SitePaths.PRODUCTS%>">All Products</a></li>
 						<security:authorize access="hasAnyRole('SuperAdmin')">
-						<li><a href="<%=request.getContextPath() + SitePaths.ProductAdd%>">Add Product</a></li>
+						<li><a href="<%=request.getContextPath() + SitePaths.PRODUCT_ADD%>">Add Product</a></li>
 						</security:authorize>
 				</ul>
 			</nav>

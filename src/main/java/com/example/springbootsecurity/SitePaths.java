@@ -5,12 +5,12 @@ package com.example.springbootsecurity;
 
 public final class SitePaths
 {
-	public static final String Login = "/login";
-	public static final String Logout = "/logout";
-	public static final String HandleProductAdd = "/handleaddproduct";
-	public static final String HandleProductDelete = "/deleteproduct";
-	public static final String ProductAdd = "/addproduct";
-	public static final String Products = "/products";
-	public static final String Root = "/";
-	public static final String Test = "/test";
+	public static final String LOGIN = "/login";
+	public static final String LOGOUT = "/logout";
+	public static final String HANDLE_PRODUCT_ADD = "/handle-add-product";
+	public static final String HANDLE_PRODUCT_DELETE = "/delete-product";
+	public static final String PRODUCT_ADD = "/add-product";
+	public static final String PRODUCTS = "/products";
+	public static final String ROOT = "/";
+	public static final String TEST = "/test";
 }

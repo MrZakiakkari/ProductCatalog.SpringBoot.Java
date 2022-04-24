@@ -14,13 +14,13 @@
 			<nav>
 				<ul>
 					<li><a href="<%=request.getContextPath()%>">Home</a></li>
-					<li><a href="<%=request.getContextPath() + SitePaths.Login%>">Login</a></li>
-					<li><a href="<%=request.getContextPath() + SitePaths.Logout%>">Logout</a></li>
-					<li><a href="<%=request.getContextPath() + SitePaths.HandleProductAdd%>">Handle Product Add (Method:POST)</a></li>
-					<li><a href="<%=request.getContextPath() + SitePaths.HandleProductDelete%>/code">Handle Product Delete</a></li>
-					<li><a href="<%=request.getContextPath() + SitePaths.ProductAdd%>">Product Add</a></li>
-					<li><a href="<%=request.getContextPath() + SitePaths.Products%>">Products</a></li>
-					<li><a href="<%=request.getContextPath() + SitePaths.Test%>">Test</a></li>
+					<li><a href="<%=request.getContextPath() + SitePaths.LOGIN%>">Login</a></li>
+					<li><a href="<%=request.getContextPath() + SitePaths.LOGOUT%>">Logout</a></li>
+					<li><a href="<%=request.getContextPath() + SitePaths.HANDLE_PRODUCT_ADD%>">Handle Product Add (Method:POST)</a></li>
+					<li><a href="<%=request.getContextPath() + SitePaths.HANDLE_PRODUCT_DELETE%>/code">Handle Product Delete</a></li>
+					<li><a href="<%=request.getContextPath() + SitePaths.PRODUCT_ADD%>">Product Add</a></li>
+					<li><a href="<%=request.getContextPath() + SitePaths.PRODUCTS%>">Products</a></li>
+					<li><a href="<%=request.getContextPath() + SitePaths.TEST%>">Test</a></li>
 					<li><a href="<%=request.getContextPath() + "/api/basic/products/"%>">REST API</a></li>
 					<li><a href="<%=request.getContextPath() + "/api/products/"%>">HATEOAS API</a></li>
 				</ul>

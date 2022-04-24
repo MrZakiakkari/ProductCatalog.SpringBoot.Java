@@ -11,7 +11,7 @@
 	<artifactId>SpringBootSecurity_Starter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>SpringBootSecurity_Starter</name>
+	<name>ProductCatalog.SpringSecurity</name>
 	<description>Demo project for Spring Boot</description>
 
 	<pluginRepositories>
