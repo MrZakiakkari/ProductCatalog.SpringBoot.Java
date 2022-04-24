@@ -52,6 +52,12 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+			<type>jar</type>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -66,4 +72,8 @@
 			</plugin>
 		</plugins>
 	</build>
+	<properties>
+		<maven.compiler.source>16</maven.compiler.source>
+		<maven.compiler.target>16</maven.compiler.target>
+	</properties>
 </project>
