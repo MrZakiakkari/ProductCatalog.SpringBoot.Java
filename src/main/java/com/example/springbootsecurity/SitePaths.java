@@ -7,7 +7,6 @@ public final class SitePaths
 {
 	public static final String LOGIN = "/login";
 	public static final String LOGOUT = "/logout";
-	public static final String HANDLE_PRODUCT_ADD = "/handle-add-product";
 	public static final String HANDLE_PRODUCT_DELETE = "/delete-product";
 	public static final String PRODUCT_ADD = "/add-product";
 	public static final String PRODUCTS = "/products";
