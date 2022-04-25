@@ -21,7 +21,7 @@ public class ExceptionController
 	@ExceptionHandler(Exception.class)
 	public ModelAndView handleError(HttpServletRequest requst, Exception exception)
 	{
-		ModelAndView modelAndView = new ModelAndView(ViewPageNames.ErrorPage);
+		ModelAndView modelAndView = new ModelAndView(ViewPageNames.ERROR_PAGE);
 		modelAndView.addObject("exception", exception);
 		modelAndView.addObject("url", requst.getRequestURL());
 		return modelAndView;

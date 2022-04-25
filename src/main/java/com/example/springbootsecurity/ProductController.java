@@ -49,7 +49,7 @@ public class ProductController
 			}
 			else
 			{
-				return new ModelAndView(ViewPageNames.ErrorPage);
+				return new ModelAndView(ViewPageNames.ERROR_PAGE);
 			}
 		}
 	}

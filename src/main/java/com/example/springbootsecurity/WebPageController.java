@@ -32,14 +32,14 @@ public class WebPageController
 	@GetMapping(SitePaths.PRODUCT_ADD)
 	public ModelAndView getProductAddPage(HttpServletRequest request, HttpSession session)
 	{
-		ModelAndView modelAndView = new ModelAndView(ViewPageNames.ProductAdd);
+		ModelAndView modelAndView = new ModelAndView(ViewPageNames.PRODUCT_ADD);
 		modelAndView.addObject("product", new Product());
 		return modelAndView;
 	}
 	@RequestMapping(SitePaths.TEST)
 	public String getTestPage()
 	{
-		return ViewPageNames.Test;
+		return ViewPageNames.TEST;
 	}
 
 	@Autowired
