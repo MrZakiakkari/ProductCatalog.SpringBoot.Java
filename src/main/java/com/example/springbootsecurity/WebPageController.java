@@ -3,6 +3,8 @@
  */
 package com.example.springbootsecurity;
 
+import com.example.springbootsecurity.meta.ViewPageNames;
+import com.example.springbootsecurity.meta.SitePaths;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;

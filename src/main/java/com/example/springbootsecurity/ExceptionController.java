@@ -3,6 +3,7 @@
  */
 package com.example.springbootsecurity;
 
+import com.example.springbootsecurity.meta.ViewPageNames;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

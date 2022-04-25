@@ -3,6 +3,8 @@
  */
 package com.example.springbootsecurity;
 
+import com.example.springbootsecurity.meta.ViewPageNames;
+import com.example.springbootsecurity.meta.SitePaths;
 import java.util.NoSuchElementException;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

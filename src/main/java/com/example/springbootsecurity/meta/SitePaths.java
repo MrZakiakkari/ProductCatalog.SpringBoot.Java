@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2020 Mark Crowe <https://github.com/markcrowe-com>. All rights reserved.
  */
-package com.example.springbootsecurity;
+package com.example.springbootsecurity.meta;
 
 public final class SitePaths
 {
