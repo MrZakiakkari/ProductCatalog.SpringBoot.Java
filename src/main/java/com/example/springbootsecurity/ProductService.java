@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductService
 {
-
 	static final List<Product> productList = new ArrayList();
 
 	static
@@ -23,7 +22,6 @@ public class ProductService
 		productList.add(new Product("MC342", "Kitchen Unit", "They make the most of your wall by giving you extra storage, and the right kitchen shelf can boost the style of your decor too", 23.00, 65.99, 89));
 		productList.add(new Product("WS341", "Folding Chair", "You can fold the chair, so it takes less space when you're not using it.", 12.00, 35.99, 30));
 		productList.add(new Product("TF875", "Berkant Kitchen", "Express yourself in the place where all of life’s daily activities take place.in our stylish, yet personalised kitchen..", 8900.00, 12200.99, 4));
-
 	}
 
 	/**
@@ -36,9 +34,9 @@ public class ProductService
 		return productList;
 	}// end getAllProducts
 
-	public boolean addProduct(Product p)
+	public boolean addProduct(Product product)
 	{
-		return productList.add(p);
+		return productList.add(product);
 	}
 
 	public boolean deleteProductByCode(String code)
@@ -65,5 +63,10 @@ public class ProductService
 			}
 		}
 		return null;
+	}
+	public void updateProduct(Product product)
+	{
+		deleteProductByCode(product.getCode());
+		addProduct(product);
 	}
 }
