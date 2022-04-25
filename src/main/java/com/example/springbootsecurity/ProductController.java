@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import support.web.PathSupport;
 
 @Controller
@@ -26,8 +27,21 @@ public class ProductController
 	@GetMapping(SitePaths.PRODUCTS)
 	public ModelAndView getProductsPage()
 	{
-		ModelAndView modelAndView = new ModelAndView("allProducts");
+		ModelAndView modelAndView = new ModelAndView(ViewPageNames.PRODUCTS);
 		modelAndView.addObject("productList", productService.getProducts());
+		return modelAndView;
+	}
+
+	@GetMapping(SitePaths.PRODUCTS + "/{code}")
+	public ModelAndView getProductPage(@PathVariable String code) throws NoSuchElementException
+	{
+		Product product = productService.getProductByCode(code);
+		if (product == null)
+		{
+			throw new NoSuchElementException(String.format("No product matches code '%s'", code));
+		}
+		ModelAndView modelAndView = new ModelAndView(ViewPageNames.PRODUCT);
+		modelAndView.addObject("product", product);
 		return modelAndView;
 	}
 	@GetMapping(SitePaths.PRODUCT_ADD)
@@ -40,16 +54,14 @@ public class ProductController
 	@GetMapping(SitePaths.PRODUCT_EDIT + "/{code}")
 	public ModelAndView getProductEditPage(@PathVariable String code) throws NoSuchElementException
 	{
-
 		Product product = productService.getProductByCode(code);
 		if (product == null)
 		{
 			throw new NoSuchElementException(String.format("No product matches code '%s'", code));
 		}
-		ModelAndView modelAndView = new ModelAndView(ViewPageNames.PRODUCT_ADD);
+		ModelAndView modelAndView = new ModelAndView(ViewPageNames.PRODUCT_EDIT);
 		modelAndView.addObject("product", product);
 		return modelAndView;
-
 	}
 	@GetMapping(SitePaths.HANDLE_PRODUCT_DELETE + "/{code}")
 	public String handleDeleteProduct(@PathVariable String code) throws NoSuchElementException
@@ -64,7 +76,7 @@ public class ProductController
 		return PathSupport.redirect(SitePaths.PRODUCTS);
 	}
 	@PostMapping(SitePaths.PRODUCT_ADD)
-	public ModelAndView handleAddProduct(@Valid @ModelAttribute Product product, BindingResult bindingResult) throws BindException
+	public ModelAndView handleAddProduct(@Valid @ModelAttribute Product product, BindingResult bindingResult, RedirectAttributes redirectAttrs) throws BindException
 	{
 		if (bindingResult.hasErrors())
 		{
@@ -75,6 +87,7 @@ public class ProductController
 			boolean insertedProduct = productService.addProduct(product);
 			if (insertedProduct)
 			{
+				redirectAttrs.addFlashAttribute("message", "Product created!");
 				return new ModelAndView(PathSupport.redirect(SitePaths.PRODUCTS));
 			}
 			else

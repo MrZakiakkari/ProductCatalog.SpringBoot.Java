@@ -1,9 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"   %>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,32 +29,33 @@
 			<table style="width:100%">
 				<tr>
 					<th align="left">Code</th>
-					<th align="left">Name</th>
-					<th align="left">Description</th>
-					<th align="left">Buy Price</th>
-					<th align="left">Sell Price</th>
-					<th align="left">Qty In Stock</th>
-					<th>&nbsp;</th>
-						<security:authorize access="hasAnyRole('Admin', 'SuperAdmin')">
-						<th align="left" colspan="2">Actions</th>
-						</security:authorize>
+					<td>${product.code}</td>
 				</tr>
-				<c:forEach items="${productList}" var="product">
-					<tr>
-						<td>${product.code}</td>
-						<td>${product.name}</td>
-						<td>${product.description}</td>
-						<td>${product.buyPrice}</td>
-						<td>${product.sellPrice}</td>
-						<td>${product.quantityInStock}</td>
-						<td><a href="/products/${product.code}">View</a></td>
-						<security:authorize access="hasAnyRole('Admin', 'SuperAdmin')">
-							<td><a href="/edit-product/${product.code}">Edit</a></td>
-							<td><a href="/delete-product/${product.code}">Delete</a></td>
-						</security:authorize>
-					</tr>
-				</c:forEach>
+				<tr>
+					<th align="left">Name</th>
+					<td>${product.name}</td>
+				</tr>
+				<tr>
+					<th align="left">Description</th>
+					<td>${product.description}</td>
+				</tr>
+				<tr>
+					<th align="left">Buy Price</th>
+					<td>${product.buyPrice}</td>
+				</tr>
+				<tr>
+					<th align="left">Sell Price</th>
+					<td>${product.sellPrice}</td>
+				</tr>
+				<tr>
+					<th align="left">Qty In Stock</th>
+					<td>${product.quantityInStock}</td>
+				</tr>
 			</table>
+			<security:authorize access="hasAnyRole('Admin', 'SuperAdmin')">
+				<a href="/edit-product/${product.code}">Edit</a>&nbsp;
+				<a href="/delete-product/${product.code}">Delete</a>
+			</security:authorize>
 		</main>
     </body>
 </html>

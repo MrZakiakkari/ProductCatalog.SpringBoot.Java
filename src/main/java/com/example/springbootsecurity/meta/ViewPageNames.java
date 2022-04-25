@@ -10,4 +10,5 @@ public final class ViewPageNames
 	public static final String PRODUCT_ADD = "addProduct";
 	public static final String PRODUCT_EDIT = "product-edit";
 	public static final String TEST = "test";
+	public static final String PRODUCT = "product";
 }
