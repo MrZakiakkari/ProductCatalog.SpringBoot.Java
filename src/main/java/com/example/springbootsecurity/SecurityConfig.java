@@ -38,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	{
 		http.authorizeRequests()
 				.antMatchers("/add-product/**").access("hasRole('SuperAdmin')")
+				.antMatchers("/edit-product/**").access("hasAnyRole('Admin', 'SuperAdmin')")
 				.antMatchers("/delete-product/**").access("hasAnyRole('Admin', 'SuperAdmin')")
 				.and()
 				.formLogin()//	This is the line that generates a login page

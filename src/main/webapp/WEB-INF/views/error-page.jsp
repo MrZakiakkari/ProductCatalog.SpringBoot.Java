@@ -1,5 +1,5 @@
 <!--Copyright (c) 2020 Mark Crowe <https://github.com/markcrowe-com>. All rights reserved.-->
-	<%@page import="com.example.springbootsecurity.SitePaths"%>
+	<%@page import="com.example.springbootsecurity.meta.SitePaths"%>
 	<!DOCTYPE html>
 	<html>
 		<head>

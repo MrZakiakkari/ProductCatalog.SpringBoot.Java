@@ -39,7 +39,7 @@
 					<th align="left">Sell Price</th>
 					<th align="left">Qty In Stock</th>
 						<security:authorize access="hasAnyRole('Admin', 'SuperAdmin')">
-						<th align="left">Actions</th>
+						<th align="left" colspan="2">Actions</th>
 						</security:authorize>
 				</tr>
 				<c:forEach items="${productList}" var="product">
@@ -51,6 +51,7 @@
 						<td>${product.sellPrice}</td>
 						<td>${product.quantityInStock}</td>
 						<security:authorize access="hasAnyRole('Admin', 'SuperAdmin')">
+							<td align="left"><a href="/edit-product/${product.code}">Edit</a></td>
 							<td align="left"><a href="/delete-product/${product.code}">Delete</a></td>
 						</security:authorize>
 					</tr>
